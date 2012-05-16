@@ -1,0 +1,18 @@
+Constraints:
+Desired Speed:
+
+
+How to handle intensity
+How to light pixels: one at a time? how many bits to address and specify intensity
+How are all the panels synchronized?
+How often is data transfered from controller to panels?
+
+
+
+
+TCNT  - Timer counter 
+OCRX  - Output compare register
+TCCR  - Timer counter control register
+TIMSK - Time Interrupt Mask Register
+SPDR  - SPI Data Register
+SPSR  - SPI Status Register

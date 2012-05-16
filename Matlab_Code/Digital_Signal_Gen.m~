@@ -1,11 +1,10 @@
 %%
 % Notes:
 % I will use Timer1 on the ATMEGA 328 chip. This timer has 16-bit resolution.
-% 1. The timer's prescaler is set to 8, which provides a 0.5 us timer period.
+% 1. I am setting the timer's prescaler to 8, which provides a 0.5 us clock period.
 % 2. The timer is set to Clear Counter on Compare Match mode (CTC).
 % 3. The compare conidition is 2000 ticks, at which point an interrupt is generated.
-% 4. This interrupt updates the state of a set of digital outputs.
-% 5. With the current settings a state update occurs every 1ms.
+% 4. This interrupt outputs a digital 1ms.
 
 
 %% Parameters
@@ -24,7 +23,7 @@ delay = [0 0];
 
 %% GSSIN
 % Will only drive one LED on with 50% duty cycle. Will use R0.
-gssin = zeros(GS_BitsPerLED, GS_NLEDPerGroup * GS_NColorGroups); % Create a matrix with 12 x 24 values
+gssin = zeros(GS_BitsPerLED, GS_NLEDPerGroup * GS_NColorGroups);
 gssin(:,24) = [1 0 0 0 0 0 0 0 0 0 0 0];
 gssin = reshape(gssin, 1, GS_BitsPerLED  * GS_NLEDPerGroup * GS_NColorGroups);
 gssin = reshape(repmat(gssin,2,1),1,NBitsCommonShiftRegister*2);
