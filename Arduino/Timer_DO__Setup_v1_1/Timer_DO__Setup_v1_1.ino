@@ -34,7 +34,7 @@ void setup()
   TCCR1B = 0;     // same for TCCR1B
 
   // set compare match register to desired timer count:
-  OCR1A = 1999;
+  OCR1A = 999;
   // turn on CTC mode:
   TCCR1B |= (1 << WGM12);
   // Set CS11 bits for 8 prescaler. This will generate 0.5 us clock period:
